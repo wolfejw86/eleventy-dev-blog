@@ -7,3 +7,6 @@ title: JS Post
 
 This is an article about JavaScript. Deal with it.
 
+```js
+console.log('hello world')
+```
