@@ -1,0 +1,21 @@
+@import "~@styles/utilities";
+@import "~@styles/universe";
+@import "~@styles/variables";
+@import "~@styles/libraries/syntax";
+@import "~@molecules/footer";
+@import "~@atoms/github-corner";
+@import "~@atoms/anchor";
+
+.o-main {
+    width: 100%;
+    max-width: 700px;
+    margin: 48px auto;
+
+    &__content {
+        margin: 0 16px;
+    }
+
+    @media only screen and (max-width: 700px) {
+        margin: 32px auto;
+    }
+}

@@ -1,0 +1,6 @@
+include /organisms/main/index
+include /atoms/anchor/index
+
+each post in collections.post
+  block
+  +anchor(post.url)()=post.data.title

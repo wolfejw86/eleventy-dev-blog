@@ -1,0 +1,144 @@
+// The minimum reset.
+
+@import "~@styles/utilities";
+@import "~@styles/variables";
+
+html {
+    box-sizing: border-box;
+    background-color: $background;
+    color: $text;
+
+    @include grBaseFontSize(700);
+
+    h1 {
+        @include h1(700);
+    }
+
+    h2 {
+        @include h2(700)
+    }
+    h3 {
+        @include h3(700);
+    }
+
+    h4 {
+        @include h4(700);
+    }
+
+    p,
+    a,
+    li {
+        @include grFontSize(700);
+        @include grBaseLineHeight(700);
+    }
+
+    code[class*="language-"],
+    pre[class*="language-"] {
+        @include grBaseFontSize(700);
+    }
+
+    @media only screen and (max-width: 700px) {
+        @include grBaseFontSize(600);
+
+        h1 {
+            @include h1(600);
+        }
+
+        h2 {
+            @include h2(600)
+        }
+        h3 {
+            @include h3(600);
+        }
+
+        h4 {
+            @include h4(600);
+        }
+
+        p,
+        a,
+        li {
+            @include p(600);
+        }
+
+        p,
+        a {
+            @include grBaseLineHeight(600);
+        }
+
+        code[class*="language-"],
+        pre[class*="language-"] {
+            @include grBaseFontSize(600);
+        }
+
+        li {
+            line-height: 2;
+        }
+    }
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+mark {
+    background-color: $mark;
+    color: white;
+}
+
+code {
+    background-color: $highlight-code;
+    height: 20px;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+a {
+    text-underline-position: under;
+    text-decoration-style: dotted;
+}
+
+a,
+code {
+    word-wrap: break-word;
+}
+
+pre {
+    overflow: auto;
+    background: $pre;
+    padding: 20px;
+
+    code {
+        color: $highlight-code;
+        background-color: $pre;
+        padding: 0;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: 'system', 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+li {
+    line-height: 2;
+}

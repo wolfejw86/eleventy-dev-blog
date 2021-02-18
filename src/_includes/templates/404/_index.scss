@@ -1,0 +1,6 @@
+@import "~@styles/utilities";
+@import "~@styles/universe";
+
+.gelo {
+    @include grFontSize();
+}

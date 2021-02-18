@@ -1,0 +1,8 @@
+include /atoms/anchor/index
+
+mixin navigation()
+  nav(class=`m-navigation ${attributes.class}`)&attributes(attributes)
+    block
+    +anchor('/')(class="m-navigation__link") Home
+    block
+    +anchor('/blog')(class="m-navigation__link") Blog
