@@ -54,6 +54,7 @@ module.exports = (config) => {
             includes: '_includes',
         },
         templateFormats: ["md"],
-        htmlTemplateEngine: 'pug'
+        htmlTemplateEngine: 'pug',
+        pathPrefix: process.env.ELEVENTY_PATH_PREFIX
     };
 };
