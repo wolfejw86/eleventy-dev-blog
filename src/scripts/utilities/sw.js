@@ -3,9 +3,9 @@ self.addEventListener('install', function (event) {
     event.waitUntil(
         caches.open('sw-cache').then(function (cache) {
             return cache.addAll([
-                '/index.html',
-                '/assets/images/logo-white-512.png',
-                '/assets/images/logo-white-192.png'
+                '{{PATH_PREFIX}}index.html',
+                '{{PATH_PREFIX}}assets/images/logo-white-512.png',
+                '{{PATH_PREFIX}}assets/images/logo-white-192.png'
             ]);
         })
     );

@@ -1,14 +1,14 @@
 {
-    "name": "miayam",
+    "name": "jay-wolfe-eleventy-dev-blog",
     "version": "1.0.0",
-    "description": "A brutalist blog site built & designed by Muhammad D. Ramadhan.",
+    "description": "A brutalist blog site built by Jay Wolfe.",
     "keywords": [
         "11ty",
         "brutalism",
         "blog",
         "vanilla"
     ],
-    "author": "Muhammad D. Ramadhan",
+    "author": "Jay Wolfe",
     "license": "MIT",
     "scripts": {
         "clean": "rm -rf _site",
@@ -17,7 +17,7 @@
         "start:eleventy": "DEBUG=Eleventy* eleventy --serve --port=1992",
         "build": "cross-env NODE_ENV=prod run-s -l clean build:*",
         "build:webpack": "webpack $npm_package_config_webpack_args",
-        "build:eleventy": "eleventy",
+        "build:eleventy": "eleventy && node src/scripts/tasks/overwrite_path_prefix.js",
         "build:purge": "npx purgecss $npm_package_config_purgecss_args",
         "build:split-css": "node src/scripts/tasks/split_css.js",
         "build:critical-path": "node src/scripts/tasks/critical_path.js",
