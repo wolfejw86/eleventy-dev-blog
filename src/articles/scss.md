@@ -1,8 +1,9 @@
 ---
 layout: blog/index.pug
-tags: post
-title: SCSS Post
+tags: [PostgreSQL, post]
+title: PostgreSQL Post
+publishDate: '2021/01/16'
 ---
 # Hello World
 
-This is an article about SCSS. Deal with it.
+This is an article about PostgreSQL. Deal with it.

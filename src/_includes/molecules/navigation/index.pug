@@ -1,8 +1,10 @@
 include /atoms/anchor/index
 
 mixin navigation()
-  nav(class=`m-navigation ${attributes.class}`)&attributes(attributes)
-    block
-    +anchor('/')(class="m-navigation__link") Home
-    block
-    +anchor('/blog')(class="m-navigation__link") Blog
+  nav(class=`m-navigation ${attributes.class || ''}`)&attributes(attributes)
+    .nav-split
+      +anchor('/')(class="m-navigation__link") Jay Wolfe Codes
+    .nav-split
+      +anchor('/')(class="m-navigation__link") Home
+      +anchor('/blog')(class="m-navigation__link") Blog
+      +anchor('/about')(class="m-navigation__link") About Me

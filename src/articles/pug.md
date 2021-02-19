@@ -1,9 +1,9 @@
 ---
-layout: blog/index.pug
-tags: post
-title: PUG Post
+title: FastifyJS Post
+tags: [FastifyJS, NodeJS, post]
+publishDate: 2021/01/17
 ---
 # Hello World
 
-This is an article about Pug. Deal with it.
+This is an article about Fastify. Deal with it.
 

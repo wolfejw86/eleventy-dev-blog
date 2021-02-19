@@ -1,2 +1,5 @@
+include /atoms/anchor/index
+
 footer(class="m-footer")
-  p(class="m-footer__content") Made with 💓 by Muhammad D. R
+  p(class="m-footer__content")!='&copy; ' + (new Date()).getFullYear() + ' '
+    +anchor(href='mailto:me@jaywolfe.dev') Jay Wolfe

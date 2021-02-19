@@ -1,13 +1,16 @@
-include /atoms/github-corner/index
 include /organisms/header/index
 
 +header
 
-
-
-
 main(class="o-main", role="main")
   .o-main__content.m-16.z-index-1
     article !{content}
+
+    h4 Check out my latest blog posts:
+    each post in collections.post
+      - url=filters.url(post.url)
+      div
+        +anchor(url)()=post.data.title
+
 
 include /molecules/footer/index

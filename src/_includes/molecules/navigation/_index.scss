@@ -1,7 +1,11 @@
 .m-navigation {
-    &__link {
-        margin-right: 10px;
-    }
+    padding: 2rem;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    flex-direction: row;
+    // border-bottom: 5px solid #333;
+    &__link {
+        margin-right: 1.5rem;
+        font-size: 20px;
+    }
 }

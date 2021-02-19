@@ -15,6 +15,10 @@ module.exports = (config) => {
         require('markdown-it')('commonmark')
             .use(require('markdown-it-attrs'))
     );
+    global.filters = config.javascriptFunctions; // magic happens here
+    config.setPugOptions({ // and here
+        globals: ['filters']
+    });
 
     // Syntax highlighting on Markdown
     config.addPlugin(syntaxHighlight, {
