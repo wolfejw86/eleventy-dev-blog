@@ -2,6 +2,8 @@ name: Build and Deploy
 on: [push]
 jobs:
   build-and-deploy:
+    env:
+      ELEVENTY_PATH_PREFIX: /eleventy-dev-blog/
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -10,8 +12,6 @@ jobs:
           persist-credentials: false
 
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-        env:
-          ELEVENTY_PATH_PREFIX: /eleventy-dev-blog/
         run: |
           npm install
           npm run build

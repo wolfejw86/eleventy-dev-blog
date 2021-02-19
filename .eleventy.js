@@ -55,6 +55,6 @@ module.exports = (config) => {
         },
         templateFormats: ["md"],
         htmlTemplateEngine: 'pug',
-        pathPrefix: '/eleventy-dev-blog/'
+        pathPrefix: process.env.ELEVENTY_PATH_PREFIX
     };
 };

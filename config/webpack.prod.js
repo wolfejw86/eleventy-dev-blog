@@ -10,7 +10,7 @@ module.exports = merge(commonConfig, {
     output: {
         path: path.join(__dirname, '../_site'),
         filename: 'scripts-[name]-[contenthash].js',
-        publicPath: '/'
+        publicPath: `${process.env.ELEVENTY_PATH_PREFIX || '/'}`
     },
     optimization: {
         minimize: true,
