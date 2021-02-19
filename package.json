@@ -18,7 +18,7 @@
         "build": "cross-env NODE_ENV=prod run-s -l clean build:*",
         "build:webpack": "webpack $npm_package_config_webpack_args",
         "build:eleventy": "eleventy && node src/scripts/tasks/overwrite_path_prefix.js",
-        "builderdash:purge": "npx purgecss $npm_package_config_purgecss_args",
+        "build:purge": "npx purgecss $npm_package_config_purgecss_args",
         "build:split-css": "node src/scripts/tasks/split_css.js",
         "build:critical-path": "node src/scripts/tasks/critical_path.js",
         "build:stats": "node src/scripts/tasks/stats.js"
