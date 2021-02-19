@@ -1,0 +1,18 @@
+include /atoms/anchor/index
+
+mixin article-list(slice)
+  .post-list
+    block
+    - var posts=slice ? collections.posts.slice(0, slice) : collections.posts
+
+    each post in posts
+      div
+        - var url=filters.url(post.url)
+        .post-list__item
+          +anchor(href=url class="big")()=post.data.title
+
+          div
+            each tag in post.data.tags
+              if tag != 'posts'
+                +anchor(href='#' class="tag")
+                  ='#' + tag

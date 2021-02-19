@@ -1,6 +1,6 @@
 ---
 title: FastifyJS Post
-tags: [FastifyJS, NodeJS, post]
+tags: [FastifyJS, NodeJS]
 publishDate: 2021/01/17
 ---
 # Hello World

@@ -2,6 +2,7 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const modifyAppPrefixIfExists = require('./src/scripts/tasks/overwrite_path_prefix');
 
 module.exports = (config) => {
+    config.setDataDeepMerge(true); // allows root .json file for data groupings + individual tags at the frontmatter level
     // Needed to prevent eleventy from ignoring changes to generated
     // templates since it is in our `.gitignore`
     config.setUseGitIgnore(false);
@@ -50,6 +51,30 @@ module.exports = (config) => {
     config.on("afterBuild", () => {
         modifyAppPrefixIfExists();
     });
+
+    config.addCollection('tagList', function (collection) {
+        const tagSet = new Set();
+        collection.getAll().forEach(function (item) {
+          if ('tags' in item.data) {
+            let tags = item.data.tags;
+
+            tags = tags.filter(function (item) {
+              switch (item) {
+                case 'posts':
+                  return false;
+              }
+
+              return true;
+            });
+
+            for (const tag of tags) {
+              tagSet.add(tag);
+            }
+          }
+        });
+
+        return [...tagSet];
+      });
 
     return {
         dir: {

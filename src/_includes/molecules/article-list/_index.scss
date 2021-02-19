@@ -1,0 +1,17 @@
+.post-list {
+    &__item {
+        margin-top: 25px;
+    }
+
+    a {
+        &.big {
+            font-size: 1.2rem;
+        }
+
+        &.tag {
+            overflow-wrap: break-word;
+            word-wrap:break-word;
+            margin-right: .75rem;
+        }
+    }
+}

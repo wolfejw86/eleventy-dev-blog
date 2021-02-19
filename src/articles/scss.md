@@ -1,6 +1,6 @@
 ---
 layout: blog/index.pug
-tags: [PostgreSQL, post]
+tags: [PostgreSQL]
 title: PostgreSQL Post
 publishDate: '2021/01/16'
 ---
