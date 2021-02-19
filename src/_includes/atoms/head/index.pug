@@ -6,9 +6,9 @@ head
   meta(name="description", content=`${description || site.description}`)
 
   //- PWA stuff
-  link(rel="manifest", href="/manifest.webmanifest")
-  link(rel="icon", href="/favicon.ico", type="image/x-icon")
-  link(rel="apple-touch-icon", href="/assets/image/logo-white-192.png")
+  link(rel="manifest", href=filters.url("/manifest.webmanifest"))
+  link(rel="icon", href=filters.url("/favicon.ico"), type="image/x-icon")
+  link(rel="apple-touch-icon", href=filters.url("/assets/image/logo-white-192.png"))
   meta(name="theme-color", content="#fff")
 
   //- Open graph related
