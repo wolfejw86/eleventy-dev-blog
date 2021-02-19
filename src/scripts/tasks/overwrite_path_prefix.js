@@ -1,11 +1,25 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || '/';
-const swOutput = path.join(__dirname, '../../../_site/sw.js');
+const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
+const swOutput = path.join(__dirname, "../../../_site/sw.js");
+const manifestOutput = path.join(
+    __dirname,
+    "../../../_site/manifest.webmanifest"
+);
 
-fs.readFile(swOutput, (err, swFile) => {
-    fs.writeFile(swOutput, swFile.toString().replace(/\{\{PATH_PREFIX\}\}/g, pathPrefix), (err) => {
-        console.log(err ? 'Failed to replace pathPrefix.' : 'Replaced pathPrefix Successfully.')
-    })
-});
+module.exports = () => {
+    const swFile = fs.readFileSync(swOutput);
+
+    fs.writeFileSync(
+        swOutput,
+        swFile.toString().replace(/\{\{PATH_PREFIX\}\}/g, pathPrefix)
+    );
+
+    const manifestFile = fs.readFileSync(manifestOutput);
+
+    fs.writeFileSync(
+        manifestOutput,
+        manifestFile.toString().replace(/\{\{PATH_PREFIX\}\}/g, pathPrefix)
+    );
+};

@@ -17,7 +17,7 @@
         "start:eleventy": "DEBUG=Eleventy* eleventy --serve --port=1992",
         "build": "cross-env NODE_ENV=prod run-s -l clean build:*",
         "build:webpack": "webpack $npm_package_config_webpack_args",
-        "build:eleventy": "eleventy && node src/scripts/tasks/overwrite_path_prefix.js",
+        "build:eleventy": "eleventy",
         "build:purge": "npx purgecss $npm_package_config_purgecss_args",
         "build:split-css": "node src/scripts/tasks/split_css.js",
         "build:critical-path": "node src/scripts/tasks/critical_path.js",
@@ -28,7 +28,7 @@
         "purgecss_args": "--css _site/**/*.css --content _site/**/*.html --output _site"
     },
     "devDependencies": {
-        "@11ty/eleventy": "^0.11.0",
+        "@11ty/eleventy": "^0.11.1",
         "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.4",
         "@babel/cli": "^7.12.1",
         "@babel/core": "^7.11.6",

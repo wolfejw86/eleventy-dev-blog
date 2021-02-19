@@ -4,21 +4,21 @@
     "description": "A simple developer blog",
     "icons": [
         {
-            "src": "/assets/images/logo-white-192.png",
+            "src": "{{PATH_PREFIX}}assets/images/logo-white-192.png",
             "type": "image/png",
             "sizes": "192x192",
             "purpose": "any maskable"
         },
         {
-            "src": "/assets/images/logo-white-512.png",
+            "src": "{{PATH_PREFIX}}assets/images/logo-white-512.png",
             "type": "image/png",
             "sizes": "512x512",
             "purpose": "any maskable"
         }
     ],
-    "start_url": "/index.html",
+    "start_url": "{{PATH_PREFIX}}index.html",
     "background_color": "#fff",
     "display": "standalone",
-    "scope": "/",
+    "scope": "{{PATH_PREFIX}}",
     "theme_color": "#000"
 }

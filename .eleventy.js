@@ -1,4 +1,5 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const modifyAppPrefixIfExists = require('./src/scripts/tasks/overwrite_path_prefix');
 
 module.exports = (config) => {
     // Needed to prevent eleventy from ignoring changes to generated
@@ -6,23 +7,23 @@ module.exports = (config) => {
     config.setUseGitIgnore(false);
 
     // Pass-through files
-    config.addPassthroughCopy({ 'src/assets/public': '/' });
-    config.addPassthroughCopy({ 'src/scripts/utilities/sw.js': 'sw.js' });
-    config.addPassthroughCopy('src/assets/files');
-    config.addPassthroughCopy('src/assets/images');
-    config.addPassthroughCopy('src/assets/videos');
-    config.setLibrary('md',
-        require('markdown-it')('commonmark')
-            .use(require('markdown-it-attrs'))
+    config.addPassthroughCopy({ "src/assets/public": "/" });
+    config.addPassthroughCopy({ "src/scripts/utilities/sw.js": "sw.js" });
+    config.addPassthroughCopy("src/assets/files");
+    config.addPassthroughCopy("src/assets/images");
+    config.addPassthroughCopy("src/assets/videos");
+    config.setLibrary(
+        "md",
+        require("markdown-it")("commonmark").use(require("markdown-it-attrs"))
     );
     global.filters = config.javascriptFunctions; // magic happens here
-    config.setPugOptions({ // and here
-        globals: ['filters']
+    config.setPugOptions({
+        // and here
+        globals: ["filters"],
     });
 
     // Syntax highlighting on Markdown
     config.addPlugin(syntaxHighlight, {
-
         // Change which syntax highlighters are installed
         templateFormats: ["*"], // default
 
@@ -31,7 +32,7 @@ module.exports = (config) => {
 
         // init callback lets you customize Prism
         init: function ({ Prism }) {
-            Prism.languages.myCustomLanguage = '';
+            Prism.languages.myCustomLanguage = "";
         },
 
         // Added in 3.0, set to true to always wrap lines in `<span class="highlight-line">`
@@ -44,17 +45,21 @@ module.exports = (config) => {
 
         // Added in 3.0.4, change the separator between lines (you may want "\n")
         lineSeparator: "<br>",
-    })
+    });
+
+    config.on("afterBuild", () => {
+        modifyAppPrefixIfExists();
+    });
 
     return {
         dir: {
-            input: 'src',
-            output: '_site',
-            layouts: '_includes/templates',
-            includes: '_includes',
+            input: "src",
+            output: "_site",
+            layouts: "_includes/templates",
+            includes: "_includes",
         },
         templateFormats: ["md"],
-        htmlTemplateEngine: 'pug',
-        pathPrefix: process.env.ELEVENTY_PATH_PREFIX
+        htmlTemplateEngine: "pug",
+        pathPrefix: process.env.ELEVENTY_PATH_PREFIX,
     };
 };
