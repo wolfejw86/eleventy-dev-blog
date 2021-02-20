@@ -1,4 +1,5 @@
 # www.robotstxt.org
+Sitemap: {{SITE_ROOT}}sitemap.xml
 
 # Allow crawling of all content
 User-agent: *

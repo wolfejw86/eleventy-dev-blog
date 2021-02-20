@@ -11,6 +11,23 @@
     max-width: 800px;
     margin: 48px auto;
 
+    article {
+        h2 {
+            display: flex;
+            align-items: center;
+
+            a {
+                visibility: hidden;
+            }
+
+            &:hover {
+                a {
+                    visibility: initial;
+                }
+            }
+        }
+    }
+
     &__content {
         margin: 0 16px;
     }

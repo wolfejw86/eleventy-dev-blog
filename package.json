@@ -63,5 +63,9 @@
         "webpack": "^4.44.2",
         "webpack-cli": "^3.3.12",
         "webpack-merge": "^5.1.4"
+    },
+    "dependencies": {
+        "@quasibit/eleventy-plugin-sitemap": "^2.0.4",
+        "markdown-it-anchor": "^7.0.2"
     }
 }

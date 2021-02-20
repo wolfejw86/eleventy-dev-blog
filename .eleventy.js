@@ -1,5 +1,6 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const modifyAppPrefixIfExists = require('./src/scripts/tasks/overwrite_path_prefix');
+const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 
 module.exports = (config) => {
     config.setDataDeepMerge(true); // allows root .json file for data groupings + individual tags at the frontmatter level
@@ -15,13 +16,27 @@ module.exports = (config) => {
     config.addPassthroughCopy("src/assets/videos");
     config.setLibrary(
         "md",
-        require("markdown-it")("commonmark").use(require("markdown-it-attrs"))
+        require("markdown-it")("commonmark").use(require("markdown-it-attrs")).use(
+            require('markdown-it-anchor'),
+            {
+                permalink: true,
+                permalinkClass: "direct-link a-anchor m-navigation__link",
+                permalinkBefore: true,
+                permalinkSymbol: '#'
+              }
+        )
     );
     global.filters = config.javascriptFunctions; // magic happens here
     config.setPugOptions({
         // and here
         globals: ["filters"],
     });
+
+    config.addPlugin(sitemap, {
+        sitemap: {
+          hostname: process.env.ELEVENTY_SITEMAP_BASE_URL || 'http://localhost:1992',
+        },
+      });
 
     // Syntax highlighting on Markdown
     config.addPlugin(syntaxHighlight, {

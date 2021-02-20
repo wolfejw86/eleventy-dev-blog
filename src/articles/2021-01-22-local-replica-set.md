@@ -49,7 +49,7 @@ Now I can easily develop locally simulating the full feature set of a mongodb re
 
 If you're like me and don't want to keep a list of unnecessary long commands lying around, try aliasing it. You don't have to run `rs.initiate()` except for the very first time.
 
-**The Docker Compose Way**
+## The Docker Compose Way
 
 The docker way (especially locally) is a bit more convoluted, however can be really useful for building containerized apps that communicate over dynamic DNS. It's also extremely useful for running multiple different versions of MongoDB Replica Sets for different projects. You can store each respective replica set's data volume wherever you want, thus having multiple different replica sets on your machine organized the way you want.  We’re going to need two files, one for our `docker-compose.yml` and one for our replica set setup script.
 

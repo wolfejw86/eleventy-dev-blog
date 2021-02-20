@@ -3,7 +3,6 @@ title: JS Post
 tags:
   - NodeJS
 publishDate: '2021/01/18'
-permalink: "/blog/{{title | slug}}/index.html"
 ---
 # Hello World
 

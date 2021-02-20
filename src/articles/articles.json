@@ -1,4 +1,11 @@
 {
   "layout": "blog/index.pug",
-  "tags": ["posts"]
+  "tags": [
+    "posts"
+  ],
+  "permalink": "/blog/{{title | slug}}/index.html",
+  "sitemap": {
+    "changefreq": "daily",
+    "priority": 0.8
+  }
 }
