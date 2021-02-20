@@ -1,13 +1,13 @@
 include /organisms/header/index
-include /molecules/article-list/index
+include /molecules/post-list/index
 
 +header
 
 main(class="o-main", role="main")
   .o-main__content.m-16.z-index-1
     article !{content}
-    +article-list(5)
-      h3 Check out my latest posts:
+
+      +post-list(5)
 
 
 

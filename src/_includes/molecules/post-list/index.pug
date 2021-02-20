@@ -1,9 +1,9 @@
 include /atoms/anchor/index
 
-mixin article-list(slice)
-  .post-list
+mixin post-list(slice)
+  .post-list.o-main__content.m-16.z-index-1
     block
-    - var posts=slice ? collections.posts.slice(0, slice) : collections.posts
+    - var posts=slice ? collections.posts.slice().reverse().slice(0, slice) : collections.posts.slice().reverse()
 
     each post in posts
       div

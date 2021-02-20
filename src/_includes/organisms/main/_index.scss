@@ -4,7 +4,7 @@
 @import "~@styles/libraries/syntax";
 @import "~@organisms/header";
 @import "~@molecules/footer";
-@import "~@molecules/article-list";
+@import "~@molecules/post-list";
 @import "~@atoms/github-corner";
 @import "~@atoms/anchor";
 
@@ -12,6 +12,22 @@
     width: 100%;
     max-width: 700px;
     margin: 48px auto;
+    article {
+        h2 {
+            display: flex;
+            align-items: center;
+
+            a {
+                visibility: hidden;
+            }
+
+            &:hover {
+                a {
+                    visibility: initial;
+                }
+            }
+        }
+    }
 
     p {
         font-size: 1.1rem;
