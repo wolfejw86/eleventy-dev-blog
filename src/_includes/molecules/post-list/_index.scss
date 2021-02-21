@@ -2,25 +2,27 @@
     &__item {
         margin-top: 25px;
 
-        .tag {
-            color: $color-epsilon;
-            &:visited,
-            &:active,
-            &:hover {
-                color: $color-epsilon;
-            }
+        &-tag {
+            margin-top: 10px;
         }
     }
 
     a {
         &.big {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
         }
 
         &.tag {
             overflow-wrap: break-word;
             word-wrap:break-word;
             margin-right: .75rem;
+            color: $color-epsilon;
+            font-size: 1.2rem;
+            &:visited,
+            &:active,
+            &:hover {
+                color: $color-epsilon;
+            }
         }
     }
 }
