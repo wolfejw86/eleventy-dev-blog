@@ -1,5 +1,5 @@
 # Name s3 bucket
-BUCKET_NAME=mys3bucket123123159
+BUCKET_NAME=jaywolfe.dev
 
 # Create s3 bucket
 aws s3api create-bucket --bucket $BUCKET_NAME --region us-east-1
@@ -18,5 +18,7 @@ echo "http://$BUCKET_NAME.s3-website-us-east-1.amazonaws.com"
 # Bonus - Create CloudFront for https + caching!
 # makes an assumption for us-east-1 - just change the url how you need it
 aws cloudfront create-distribution \
-    --origin-domain-name $BUCKET_NAME.s3-website-us-east-1.amazonaws.com \
+    --origin-domain-name "$BUCKET_NAME.s3-website-us-east-1.amazonaws.com" \
     --default-root-object index.html
+
+# getting access denied errors on cloudfront url? check out https://aws.amazon.com/premiumsupport/knowledge-center/s3-website-cloudfront-error-403/

@@ -4,6 +4,7 @@ jobs:
   build-and-deploy:
     env:
       ELEVENTY_PATH_PREFIX: /eleventy-dev-blog/
+      GA_TRACKER_ID_PROD: UA-140018216-1
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
