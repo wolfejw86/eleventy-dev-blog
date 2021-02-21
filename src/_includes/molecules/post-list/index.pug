@@ -11,7 +11,7 @@ mixin post-list(slice)
         .post-list__item
           +anchor(href=url class="big")()=post.data.title
 
-          div
+          .post-list__item-tag
             each tag in post.data.tags
               if tag != 'posts'
                 +anchor(href='#' class="tag")

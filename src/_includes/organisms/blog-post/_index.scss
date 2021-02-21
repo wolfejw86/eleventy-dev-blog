@@ -6,10 +6,20 @@
 @import "~@molecules/footer";
 @import "~@atoms/anchor";
 
+a {
+    color: $link;
+}
+
+code {
+    color: #111b27;
+}
+
 .o-main {
     width: 100%;
     max-width: 800px;
     margin: 48px auto;
+
+
 
     article {
         h2 {

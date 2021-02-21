@@ -1,6 +1,15 @@
 .post-list {
     &__item {
         margin-top: 25px;
+
+        .tag {
+            color: $color-epsilon;
+            &:visited,
+            &:active,
+            &:hover {
+                color: $color-epsilon;
+            }
+        }
     }
 
     a {
