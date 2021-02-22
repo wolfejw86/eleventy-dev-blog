@@ -2,7 +2,7 @@ include /atoms/anchor/index
 include /atoms/date-and-read-time/index
 
 mixin post-list(slice)
-  .post-list.o-main__content.m-16.z-index-1
+  .post-list
     block
     - var posts=slice ? collections.posts.slice().reverse().slice(0, slice) : collections.posts.slice().reverse()
 
