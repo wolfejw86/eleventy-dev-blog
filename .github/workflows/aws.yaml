@@ -1,0 +1,33 @@
+name: aws s3 sync
+on:
+  push:
+    branches:
+      - master
+env:
+  ELEVENTY_PATH_PREFIX: /
+  GA_TRACKER_ID_PROD: UA-140018216-1
+jobs:
+  deploy:
+    name: Upload to Amazon S3
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Install
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Configure AWS credentials from Test account
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+
+    - name: Copy files to the test website with the AWS CLI
+      run: |
+        aws s3 sync ./_site s3://jaywolfe.dev
