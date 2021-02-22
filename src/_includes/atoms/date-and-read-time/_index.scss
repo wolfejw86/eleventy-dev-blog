@@ -1,0 +1,15 @@
+.date-and-time {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    span {
+        margin-left: 2px;
+    }
+
+    .clock {
+        fill: $color-beta;
+        width: 16px;
+        margin-left: 10px;
+    }
+}

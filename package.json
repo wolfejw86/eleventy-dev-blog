@@ -18,7 +18,7 @@
         "build": "cross-env NODE_ENV=prod run-s -l clean build:*",
         "build:webpack": "webpack $npm_package_config_webpack_args",
         "build:eleventy": "eleventy",
-        "build:purge": "npx purgecss $npm_package_config_purgecss_args",
+        "build1:purge": "npx purgecss $npm_package_config_purgecss_args",
         "build:split-css": "node src/scripts/tasks/split_css.js",
         "build:critical-path": "node src/scripts/tasks/critical_path.js",
         "build:stats": "node src/scripts/tasks/stats.js"
@@ -66,6 +66,7 @@
     },
     "dependencies": {
         "@quasibit/eleventy-plugin-sitemap": "^2.0.4",
+        "eleventy-plugin-time-to-read": "^1.0.0",
         "markdown-it-anchor": "^7.0.2"
     }
 }

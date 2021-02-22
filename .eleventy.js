@@ -1,6 +1,7 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const modifyAppPrefixIfExists = require('./src/scripts/tasks/overwrite_path_prefix');
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
+const timeToRead = require('eleventy-plugin-time-to-read');
 
 module.exports = (config) => {
     config.setDataDeepMerge(true); // allows root .json file for data groupings + individual tags at the frontmatter level
@@ -26,6 +27,9 @@ module.exports = (config) => {
               }
         )
     );
+
+    config.addPlugin(timeToRead, { style: 'short' });
+
     global.filters = config.javascriptFunctions; // magic happens here
     config.setPugOptions({
         // and here

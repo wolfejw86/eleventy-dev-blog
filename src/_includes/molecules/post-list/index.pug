@@ -1,15 +1,5 @@
 include /atoms/anchor/index
-
--function prettyDate(dateString){
-    //if it's already a date object and not a string you don't need this line:
-    -var date = new Date(dateString);
-    -var d = date.getDate();
-    -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-    -var m = monthNames[date.getMonth()];
-    -var y = date.getFullYear();
-    -return d+' '+m+' '+y;
--}
-
+include /atoms/date-and-read-time/index
 
 mixin post-list(slice)
   .post-list.o-main__content.m-16.z-index-1
@@ -21,7 +11,7 @@ mixin post-list(slice)
         - var url=filters.url(post.url)
         .post-list__item
           +anchor(href=url class="big")()=post.data.title
-          span=` - ${prettyDate(post.data.date)}`
+          +date-and-read-time(post)
 
           .post-list__item-tag
             each tag in post.data.tags
