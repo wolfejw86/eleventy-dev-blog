@@ -4,6 +4,7 @@ description: Check out my multi part video series where you have a chance to lea
 date: '2021-02-05'
 tags: [NodeJS, TypeScript, FastifyJS, PostgreSQL, Swagger]
 ---
+## How To Rapidly Build A NodeJS REST API with Fastify, PostgreSQL, and Swagger Documentation
 
 This multi part video series is a chance to learn one of my curated workflows for quickly building a REST API with Fastify, NodeJS, and Postgresql that is self documenting and able to be scaled very easily for much larger projects.
 

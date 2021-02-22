@@ -4,10 +4,11 @@ description: I'm a fan of automating this type of thing since I do it in almost 
 date: '2021-02-08'
 tags: [NodeJS, TypeScript, ESLint, Prettier]
 ---
+## How To Automate Code Cleanliness in VSCode with Typescript, ESLint, and Prettier
 
 I'm a fan of automating this type of thing since I do it in almost every project I ever start up. I just like the autoformatting and clean look of the code too much to go without now (probably says something about my personality :P).
 
-To do this quickly we're going to use some codegen to get things up and running with `fastify-cli` to quickly generate us a boilerplate Typescript project.  
+To do this quickly we're going to use some codegen to get things up and running with `fastify-cli` to quickly generate us a boilerplate Typescript project.
 
 1. `npm i -g fastify-cli`
 2. `fastify generate my-repo && cd my-repo && npm i`
