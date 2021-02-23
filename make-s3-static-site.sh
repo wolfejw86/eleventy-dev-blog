@@ -1,5 +1,5 @@
 # Name s3 bucket
-BUCKET_NAME=jaywolfe.dev
+BUCKET_NAME=practicebucket123123123.com
 
 # Create s3 bucket
 aws s3api create-bucket --bucket $BUCKET_NAME --region us-east-1

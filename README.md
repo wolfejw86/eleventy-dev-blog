@@ -176,7 +176,7 @@ The `.env` file consist of constant variables like `GA_TRACKER_ID_PROD`,
 
 `Webpack` bundles the assets, `Eleventy` will do the rest.
 
-Open `localhost:1992` to see the result.
+Open `localhost:3000` to see the result.
 
 
 ### Production

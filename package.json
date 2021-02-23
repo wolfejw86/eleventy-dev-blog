@@ -14,7 +14,7 @@
         "clean": "rm -rf _site",
         "start": "cross-env NODE_ENV=dev run-p -l clean start:*",
         "start:webpack": "webpack $npm_package_config_webpack_args --watch",
-        "start:eleventy": "DEBUG=Eleventy* eleventy --serve --port=1992",
+        "start:eleventy": "DEBUG=Eleventy* eleventy --serve --port=3000",
         "build": "cross-env NODE_ENV=prod run-s -l clean build:*",
         "build:webpack": "webpack $npm_package_config_webpack_args",
         "build:eleventy": "eleventy",
@@ -65,6 +65,7 @@
         "webpack-merge": "^5.1.4"
     },
     "dependencies": {
+        "@11ty/eleventy-plugin-rss": "^1.1.0",
         "@quasibit/eleventy-plugin-sitemap": "^2.0.4",
         "eleventy-plugin-time-to-read": "^1.0.0",
         "markdown-it-anchor": "^7.0.2"

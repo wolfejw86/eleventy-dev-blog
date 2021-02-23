@@ -1,7 +1,7 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const modifyAppPrefixIfExists = require('./src/scripts/tasks/overwrite_path_prefix');
+const modifyAppPrefixIfExists = require("./src/scripts/tasks/overwrite_path_prefix");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
-const timeToRead = require('eleventy-plugin-time-to-read');
+const timeToRead = require("eleventy-plugin-time-to-read");
 
 module.exports = (config) => {
     config.setDataDeepMerge(true); // allows root .json file for data groupings + individual tags at the frontmatter level
@@ -17,18 +17,17 @@ module.exports = (config) => {
     config.addPassthroughCopy("src/assets/videos");
     config.setLibrary(
         "md",
-        require("markdown-it")("commonmark").use(require("markdown-it-attrs")).use(
-            require('markdown-it-anchor'),
-            {
+        require("markdown-it")("commonmark")
+            .use(require("markdown-it-attrs"))
+            .use(require("markdown-it-anchor"), {
                 permalink: true,
                 permalinkClass: "direct-link a-anchor m-navigation__link",
                 permalinkBefore: true,
-                permalinkSymbol: '#'
-              }
-        )
+                permalinkSymbol: "#",
+            })
     );
 
-    config.addPlugin(timeToRead, { style: 'short' });
+    config.addPlugin(timeToRead, { style: "short" });
 
     global.filters = config.javascriptFunctions; // magic happens here
     config.setPugOptions({
@@ -38,9 +37,11 @@ module.exports = (config) => {
 
     config.addPlugin(sitemap, {
         sitemap: {
-          hostname: process.env.ELEVENTY_SITEMAP_BASE_URL || 'http://localhost:1992',
+            hostname:
+                process.env.ELEVENTY_SITEMAP_BASE_URL ||
+                "http://localhost:3000",
         },
-      });
+    });
 
     // Syntax highlighting on Markdown
     config.addPlugin(syntaxHighlight, {
@@ -71,29 +72,29 @@ module.exports = (config) => {
         modifyAppPrefixIfExists();
     });
 
-    config.addCollection('tagList', function (collection) {
+    config.addCollection("tagList", function (collection) {
         const tagSet = new Set();
         collection.getAll().forEach(function (item) {
-          if ('tags' in item.data) {
-            let tags = item.data.tags;
+            if ("tags" in item.data) {
+                let tags = item.data.tags;
 
-            tags = tags.filter(function (item) {
-              switch (item) {
-                case 'posts':
-                  return false;
-              }
+                tags = tags.filter(function (item) {
+                    switch (item) {
+                        case "posts":
+                            return false;
+                    }
 
-              return true;
-            });
+                    return true;
+                });
 
-            for (const tag of tags) {
-              tagSet.add(tag);
+                for (const tag of tags) {
+                    tagSet.add(tag);
+                }
             }
-          }
         });
 
         return [...tagSet];
-      });
+    });
 
     return {
         dir: {

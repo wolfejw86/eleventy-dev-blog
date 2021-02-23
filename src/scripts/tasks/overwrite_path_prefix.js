@@ -3,7 +3,7 @@ const path = require("path");
 const glob = require("glob");
 
 module.exports = () => {
-    const siteRoot = process.env.SITE_ROOT || "http://localhost:1992/"
+    const siteRoot = process.env.SITE_ROOT || "http://localhost:3000/"
     const pathPrefix = process.env.ELEVENTY_PATH_PREFIX || "/";
     const basePath = path.join(__dirname, "../../../_site");
     const filesToCheck = glob.sync("*.{js,webmanifest,txt}", { cwd: basePath });

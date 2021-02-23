@@ -4,7 +4,7 @@ include /atoms/date-and-read-time/index
 mixin post-list(slice)
   .post-list
     block
-    - var posts=slice ? collections.posts.slice().reverse().slice(0, slice) : collections.posts.slice().reverse()
+    - var posts=slice ? collections.posts.slice().filter(post => post.data.published !== false).reverse().slice(0, slice) : collections.posts.slice().filter(post => post.data.published !== false).reverse()
 
     each post in posts
       div

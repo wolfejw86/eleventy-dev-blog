@@ -2,8 +2,11 @@
 title: How I Quickly Create Static Website Hosting Using Only an AWS S3 Bucket
 description: I'm a fan of automating this type of thing since I do it in almost every project I ever start up. I just like the autoformatting and clean look of the code too much to go without now (probably says something about my personality).
 date: '2021-02-20'
+image: https://cdn.hashnode.com/res/hashnode/image/upload/v1613800001307/gDmFYbkIj.png?w=1600&h=840&fit=crop&crop=entropy&auto=compress
 tags: [AWS, NodeJS, EleventyJS]
 ---
+
+![image]({{image}})
 
 ## How To Use S3 for Static Website Hosting In A Nutshell
 Today's post is going to be short - if you want to get the bash script I wrote right away so that you can scale up an s3 bucket to host your static website feel free to do so by  [clicking here](#just-give-me-the-script-please)  to jump to the bottom.
