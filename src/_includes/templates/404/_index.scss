@@ -1,6 +1,29 @@
 @import "~@styles/utilities";
 @import "~@styles/universe";
+@import "~@organisms/main";
 
 .gelo {
     @include grFontSize();
+}
+
+.o-404 {
+    article {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        a {
+            color: $link;
+            &:visited,
+            &:active,
+            &:hover {
+                color: $link;
+            }
+        }
+    }
+    h1 {
+        a {
+            visibility: hidden;
+        }
+    }
 }

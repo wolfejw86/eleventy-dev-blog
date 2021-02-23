@@ -1,4 +1,10 @@
-header
-  h1 Hey, you are using 404 template
-main(role="main")
-  article !{content}
+include /atoms/head/index
+include /organisms/header/index
+
++header
+
+main(class="o-main o-404", role="main")
+  .o-main__content.m-16.z-index-1
+    article !{content}
+
+include /molecules/footer/index
