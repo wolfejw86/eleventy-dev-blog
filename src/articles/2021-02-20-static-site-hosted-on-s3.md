@@ -1,11 +1,11 @@
 ---
-title: How I Quickly Create Static Website Hosting Using Only an AWS s3 Bucket
+title: How I Quickly Create Static Website Hosting Using Only an AWS S3 Bucket
 description: I'm a fan of automating this type of thing since I do it in almost every project I ever start up. I just like the autoformatting and clean look of the code too much to go without now (probably says something about my personality).
 date: '2021-02-20'
 tags: [AWS, NodeJS, EleventyJS]
 ---
 
-## How To Use s3 for Static Website Hosting In A Nutshell
+## How To Use S3 for Static Website Hosting In A Nutshell
 Today's post is going to be short - if you want to get the bash script I wrote right away so that you can scale up an s3 bucket to host your static website feel free to do so by  [clicking here](#just-give-me-the-script-please)  to jump to the bottom.
 
 So today I just needed to get something put together really quickly.  I'm playing around with the EleventyJS static site generator and wanted to test my deployments quickly and easily, as well as prove out a possible avenue of long term deployment options with https, ssl, etc. etc. you know the drill.  It turns out the way to do that in AWS land is to use an s3 bucket.  Simple enough right? More like maybe...
@@ -32,11 +32,10 @@ Okay here we go - bash scripting goodness for the win!  Assuming you have a stat
 
 First we need a name for our new s3 bucket we're about to create! Even when scripting with bash it can be helpful to keep our code DRY.  Therefore we'll use a simple variable throughout our operations - `BUCKET_NAME`.
 
+## How To Create Your S3 Bucket With The AWS CLI
 ```bash
 export BUCKET_NAME=mys3bucketname
-```
-Now, time to create that bucket:
-```bash
+
 aws s3api create-bucket --bucket $BUCKET_NAME --region us-east-1
 ```
 Assuming that worked you should now have a bucket in your console!  You will also get some output letting you know it worked.
@@ -47,7 +46,7 @@ aws s3 sync ./_site s3://$BUCKET_NAME
 ```
 Now if you click around in the console and look at your bucket you'll see your files there.
 
-
+## How To Make Your S3 Bucket Public
 Time to specify what our entry and error pages for our site are while setting up the bucket's permissions as a public site.
 ```bash
 aws s3 website s3://$BUCKET_NAME  --index-document index.html --error-document 404.html
