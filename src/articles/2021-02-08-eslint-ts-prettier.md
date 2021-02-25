@@ -80,5 +80,11 @@ If you made it this far thanks for reading and happy coding (with wonderful auto
 
 
 ## Bonus Method - Alternate Way To Script the Whole Process With Node.js
+tl;dr -
+```bash
+wget https://gist.githubusercontent.com/wolfejw86/22a29bd6565fb679959c83c5bc40fea5/raw/b2907aac957afc96e0cb282dfe82c313684410e2/setup-typescript-eslint-prettier.js && node setup-typescript-eslint-prettier.js
+```
+
+Or inspect the whole gist below:
 
 <script src="https://gist.github.com/wolfejw86/22a29bd6565fb679959c83c5bc40fea5.js"></script>
