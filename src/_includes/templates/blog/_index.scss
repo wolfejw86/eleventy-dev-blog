@@ -4,3 +4,11 @@
 .gelo {
     width: 500px;
 }
+
+@import url('https://cdn.rawgit.com/lonekorean/gist-syntax-themes/848d6580/stylesheets/monokai.css');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body {
+  margin: 20px;
+  font: 16px 'Open Sans', sans-serif;
+}

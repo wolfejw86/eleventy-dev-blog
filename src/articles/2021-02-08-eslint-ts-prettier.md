@@ -8,6 +8,8 @@ tags: [NodeJS, TypeScript, ESLint, Prettier]
 
 I'm a fan of automating this type of thing since I do it in almost every project I ever start up. I just like the autoformatting and clean look of the code too much to go without now (probably says something about my personality :P).
 
+NOTE: If you want a Node.js script that you can run in your repository and automate the entire thing without worrying about the individual pieces, feel free to [skip down to my GitHub Gist at the bottom of this post](#bonus-method---alternate-way-to-script-the-whole-process-with-node.js)!
+
 To do this quickly we're going to use some codegen to get things up and running with `fastify-cli` to quickly generate us a boilerplate Typescript project.
 
 1. `npm i -g fastify-cli`
@@ -27,8 +29,8 @@ echo """
         \"ecmaVersion\": 2021
     },
     \"extends\": [
+        \"eslint:recommended\",
         \"plugin:@typescript-eslint/recommended\",
-        \"prettier/@typescript-eslint\",
         \"plugin:prettier/recommended\"
     ]
 }
@@ -75,3 +77,8 @@ If they do then re-read the above, check that you have everything, and try resta
 Assuming it worked, go ahead and open any file and notice the magic!  When you save it all gets formatted exactly as you specified in your eslint and prettier configurations (within reason).  Certain things of course aren't capable of being auto-fixed and you'll have to fix them manually.  Overall I consider this setup a huge productivity win in any Typescript codebase.
 
 If you made it this far thanks for reading and happy coding (with wonderful auto-fixing on save) in your future projects.  If you like this article or like my style then check out some of my other work on [this blog](https://jaywolfe.dev/) and [my youtube channel](https://www.youtube.com/channel/UCqUMpLZFrCxXm-qPSa8G08g).
+
+
+## Bonus Method - Alternate Way To Script the Whole Process With Node.js
+
+<script src="https://gist.github.com/wolfejw86/22a29bd6565fb679959c83c5bc40fea5.js"></script>
