@@ -5,6 +5,7 @@ on:
       - master
 env:
   ELEVENTY_PATH_PREFIX: /
+  NODE_ENV: production
   ELEVENTY_SITEMAP_BASE_URL: https://jaywolfe.dev
   GA_TRACKER_ID_PROD: UA-140018216-1
 jobs:
