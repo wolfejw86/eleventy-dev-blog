@@ -19,6 +19,9 @@ jobs:
     - name: Install
       run: npm install
 
+    - name: ENV
+      run: echo "GA_TRACKER_ID_PROD=UA-140018216-1" > .env
+
     - name: Build
       run: npm run build
 

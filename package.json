@@ -15,7 +15,7 @@
         "start": "NODE_ENV=dev run-p -l clean start:*",
         "start:webpack": "webpack $npm_package_config_webpack_args --watch",
         "start:eleventy": "DEBUG=Eleventy* eleventy --serve --port=3000",
-        "build": "NODE_ENV=prod run-s -l clean build:*",
+        "build": "GA_TRACKER_ID_PROD=UA-140018216-1 NODE_ENV=prod run-s -l clean build:*",
         "build:webpack": "webpack $npm_package_config_webpack_args",
         "build:eleventy": "eleventy",
         "build1:purge": "npx purgecss $npm_package_config_purgecss_args",
