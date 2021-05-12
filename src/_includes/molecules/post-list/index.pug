@@ -16,5 +16,5 @@ mixin post-list(slice)
           .post-list__item-tag
             each tag in post.data.tags
               if tag != 'posts'
-                +anchor(href='#' class="tag")
+                +anchor(href='/tags/' + tag class="tag")
                   ='#' + tag

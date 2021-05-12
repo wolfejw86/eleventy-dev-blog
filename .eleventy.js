@@ -2,6 +2,8 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const modifyAppPrefixIfExists = require("./src/scripts/tasks/overwrite_path_prefix");
 const sitemap = require("@quasibit/eleventy-plugin-sitemap");
 const timeToRead = require("eleventy-plugin-time-to-read");
+const chunk = require("lodash.chunk");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = (config) => {
     config.setDataDeepMerge(true); // allows root .json file for data groupings + individual tags at the frontmatter level
@@ -34,6 +36,7 @@ module.exports = (config) => {
         // and here
         globals: ["filters"],
     });
+    global.filters.json = (o) => JSON.stringify(o);
 
     config.addPlugin(sitemap, {
         sitemap: {
@@ -72,6 +75,15 @@ module.exports = (config) => {
         modifyAppPrefixIfExists();
     });
 
+    // Strip HTML
+    config.addFilter("stripHtml", (content) => {
+        const strippedContent = content
+            .replace(/(<([^>]+)>)/gi, "")
+            .replace(/\r?\n|\r/gi, " ")
+            .trim();
+        return strippedContent;
+    });
+
     config.addCollection("tagList", function (collection) {
         const tagSet = new Set();
         collection.getAll().forEach(function (item) {
@@ -96,6 +108,81 @@ module.exports = (config) => {
         return [...tagSet];
     });
 
+    // Categorize contents
+    config.addCollection("categories", (collection) => {
+        // Get unique list of tags
+        let tagSet = new Set();
+        collection.getAllSorted().map((item) => {
+            if ("tags" in item.data) {
+                const tags = item.data.tags;
+                // Optionally filter things out before you iterate over.
+                for (let tag of tags) {
+                    tagSet.add(tag);
+                }
+            }
+        });
+
+        const paginationSize = 5;
+        const tagMap = [];
+        const tagArray = [...tagSet];
+
+        for (let tagName of tagArray) {
+            const tagItems = collection.getFilteredByTag(tagName);
+            const tagItemsWithPrevAndNext = tagItems.map(
+                (tagItem, index, thisArray) => {
+                    const prev = thisArray[index - 1];
+                    const next = thisArray[index + 1];
+                    tagItem.data["prev"] = {
+                        ...tagItem.data["prev"],
+                        [tagName]: prev,
+                    };
+                    tagItem.data["next"] = {
+                        ...tagItem.data["next"],
+                        [tagName]: next,
+                    };
+
+                    return tagItem;
+                }
+            );
+
+            const pagedItems = chunk(tagItemsWithPrevAndNext, paginationSize);
+            pagedItems.forEach((pagedItem, index) => {
+                console.log({ tagName, pagedItem });
+                tagMap.push({
+                    tagName,
+                    pageNumber: index,
+                    pageData: pagedItem,
+                });
+            });
+        }
+
+        return tagMap;
+    });
+    config.addPlugin(pluginRss);
+    config.addLiquidFilter("dateToRfc3339", pluginRss.dateRfc3339);
+    config.addFilter("prettyDate", function prettyDate(dateString) {
+        //if it's already a date object and not a string you don't need this line:
+        var date = new Date(dateString);
+        var d = date.getDate();
+        var monthNames = [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+        ];
+        var m = monthNames[date.getMonth()];
+        var y = date.getFullYear();
+        return m + " " + d + ", " + y;
+    });
+
     return {
         dir: {
             input: "src",
@@ -103,7 +190,7 @@ module.exports = (config) => {
             layouts: "_includes/templates",
             includes: "_includes",
         },
-        templateFormats: ["md"],
+        templateFormats: ["md", "pug", "njk"],
         htmlTemplateEngine: "pug",
         pathPrefix: process.env.ELEVENTY_PATH_PREFIX,
     };
