@@ -6,6 +6,7 @@ on:
 env:
   ELEVENTY_PATH_PREFIX: /
   ELEVENTY_SITEMAP_BASE_URL: https://jaywolfe.dev
+  SITE_ROOT: https://jaywolfe.dev
   GA_TRACKER_ID_PROD: UA-140018216-1
 jobs:
   deploy:
@@ -13,25 +14,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Install
-      run: npm install
+      - name: Install
+        run: npm install
 
-    - name: ENV
-      run: echo "GA_TRACKER_ID_PROD=UA-140018216-1" > .env
+      - name: ENV
+        run: echo "GA_TRACKER_ID_PROD=UA-140018216-1" > .env
 
-    - name: Build
-      run: npm run build
+      - name: Build
+        run: npm run build
 
-    - name: Configure AWS credentials from Test account
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
 
-    - name: Copy files to the test website with the AWS CLI
-      run: |
-        aws s3 sync ./_site s3://jaywolfe.dev
+      - name: Copy files to the test website with the AWS CLI
+        run: |
+          aws s3 sync ./_site s3://jaywolfe.dev

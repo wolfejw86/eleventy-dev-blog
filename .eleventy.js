@@ -147,7 +147,6 @@ module.exports = (config) => {
 
             const pagedItems = chunk(tagItemsWithPrevAndNext, paginationSize);
             pagedItems.forEach((pagedItem, index) => {
-                console.log({ tagName, pagedItem });
                 tagMap.push({
                     tagName,
                     pageNumber: index,
