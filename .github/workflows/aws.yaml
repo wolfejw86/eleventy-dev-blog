@@ -1,4 +1,4 @@
-name: aws s3 sync
+name: AWS jaywole.dev Deploy
 on:
   push:
     branches:
