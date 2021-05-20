@@ -1,16 +1,16 @@
 ---
 title: Run a MongoDB Replica Set in Seconds
 description: Run A MongoDB Replica Set Locally
-date: '2021-01-18'
+date: "2021-01-18"
 tags: [MongoDB]
 ---
 
 ## Run a MongoDB Replica Set in Seconds
 
-  - You’re like me and want to know how it works! (and more important play around with it locally)
-  - The application you’re building has a requirement to use change streams
-  - The application you’re building has a requirement to use transactions
-  - You want to learn how either of the above 2 features work without having to deploy a database to the cloud
+- You’re like me and want to know how it works! (and more important play around with it locally)
+- The application you’re building has a requirement to use change streams
+- The application you’re building has a requirement to use transactions
+- You want to learn how either of the above 2 features work without having to deploy a database to the cloud
 
 The truth is, any of the above or something completely different are all fine reasons to want to learn something new. That's what this industry is all about and personally one of the reasons I enjoy it so much.
 
@@ -33,7 +33,7 @@ Now we can start our replica set. It’s actually a really simple one liner:
 ## Problems with this step? Check this list here:
 
 - I am having trouble with /data/db, I either can't create the directory or I can't figure out how to change it from readonly permissions
-  - solution:  You can google about filesystem permissions and `chmod 777` and all that, however I recommend a simpler fix.  Just create a directory somewhere easily accessible that you know you have write permissions on your file system for.  I personally like to use `mkdir -p ~/Desktop/data/db` (on a mac) or do the equivalent new folder on windows.  The point is it's somewhere you are allowed to create and manipulate files.  Now, change the above command to `mongod --port 27017 --dbpath ~/Desktop/data/db --replSet rs0 --bind_ip localhost`.  That was easy right? All we did was specify a different directory for the mongod process to read and write the database files to and from.
+  - solution: You can google about filesystem permissions and `chmod 777` and all that, however I recommend a simpler fix. Just create a directory somewhere easily accessible that you know you have write permissions on your file system for. I personally like to use `mkdir -p ~/Desktop/data/db` (on a mac) or do the equivalent new folder on windows. The point is it's somewhere you are allowed to create and manipulate files. Now, change the above command to `mongod --port 27017 --dbpath ~/Desktop/data/db --replSet rs0 --bind_ip localhost`. That was easy right? All we did was specify a different directory for the mongod process to read and write the database files to and from.
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1612629148867/BnBeMuUy8.png)
 
@@ -51,7 +51,7 @@ If you're like me and don't want to keep a list of unnecessary long commands lyi
 
 ## The Docker Compose Way
 
-The docker way (especially locally) is a bit more convoluted, however can be really useful for building containerized apps that communicate over dynamic DNS. It's also extremely useful for running multiple different versions of MongoDB Replica Sets for different projects. You can store each respective replica set's data volume wherever you want, thus having multiple different replica sets on your machine organized the way you want.  We’re going to need two files, one for our `docker-compose.yml` and one for our replica set setup script.
+The docker way (especially locally) is a bit more convoluted, however can be really useful for building containerized apps that communicate over dynamic DNS. It's also extremely useful for running multiple different versions of MongoDB Replica Sets for different projects. You can store each respective replica set's data volume wherever you want, thus having multiple different replica sets on your machine organized the way you want. We’re going to need two files, one for our `docker-compose.yml` and one for our replica set setup script.
 
 Here is our compose file:
 
@@ -146,4 +146,4 @@ I wrapped all the compose setup and info into a repo so you can skip straight to
 
 If you want to skip straight to the repo, you can clone it here - [https://github.com/wolfejw86/local-replica-set](https://github.com/wolfejw86/local-replica-set), run `docker-compose up`, and it should just work.
 
-If you made it this far, thanks for reading! I hope you found this helpful.  If you'd like to see more like this or something else entirely, drop me a comment and let me know what you'd like to see.  Happy coding!
+If you made it this far, thanks for reading! I hope you found this helpful. If you'd like to see more like this or something else entirely, drop me a comment and let me know what you'd like to see. Happy coding!
