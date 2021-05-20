@@ -112,15 +112,18 @@ module.exports = (config) => {
     config.addCollection("categories", (collection) => {
         // Get unique list of tags
         let tagSet = new Set();
-        collection.getAllSorted().map((item) => {
-            if ("tags" in item.data) {
-                const tags = item.data.tags;
-                // Optionally filter things out before you iterate over.
-                for (let tag of tags) {
-                    tagSet.add(tag);
+        collection
+            .getAllSorted()
+            .reverse()
+            .map((item) => {
+                if ("tags" in item.data) {
+                    const tags = item.data.tags;
+                    // Optionally filter things out before you iterate over.
+                    for (let tag of tags) {
+                        tagSet.add(tag);
+                    }
                 }
-            }
-        });
+            });
 
         const paginationSize = 5;
         const tagMap = [];
