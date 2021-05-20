@@ -5,6 +5,18 @@ const timeToRead = require("eleventy-plugin-time-to-read");
 const chunk = require("lodash.chunk");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
+/**
+ *     //- <!-- Global site tag (gtag.js) - Google Analytics -->
+    script(src='https://www.googletagmanager.com/gtag/js?id=UA-140018216-1', type='text/javascript', async)
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-140018216-1');
+
+ */
+
 module.exports = (config) => {
     config.setDataDeepMerge(true); // allows root .json file for data groupings + individual tags at the frontmatter level
     // Needed to prevent eleventy from ignoring changes to generated

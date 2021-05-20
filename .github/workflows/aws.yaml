@@ -8,6 +8,7 @@ env:
   ELEVENTY_SITEMAP_BASE_URL: https://jaywolfe.dev
   SITE_ROOT: https://jaywolfe.dev
   GA_TRACKER_ID_PROD: UA-140018216-1
+  NODE_ENV: prod
 jobs:
   deploy:
     name: Upload to Amazon S3
