@@ -8,7 +8,7 @@ permalink: /tags/{{ tag.tagName }}/{% if tag.pageNumber %}{{ tag.pageNumber + 1 
 ---
 <div class="post-list">
 
-{% for item in tag.pageData %}
+{% for item in tag.pageData | reverse %}
   <div class="post-list__item">
       <a class="big" href="{{item.url}}">{{item.data.title}}</a>
       <p class="date-and-time">
