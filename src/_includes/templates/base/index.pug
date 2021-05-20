@@ -7,6 +7,16 @@ html(lang="en")
 
     //- Shamelessly track users. Uncomment it if you are ready to abuse your readers :(
     script(src='https://www.google-analytics.com/analytics.js', type='text/javascript', async)
+    //- <!-- Global site tag (gtag.js) - Google Analytics -->
+    script(src='https://www.googletagmanager.com/gtag/js?id=UA-140018216-1', type='text/javascript', async)
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-140018216-1');
+
+
     <%= htmlWebpackPlugin.files.css.map((css) => `link(href=\'${css}\', rel='stylesheet')`).join('\n      ') %>
   body
       include ./layout
