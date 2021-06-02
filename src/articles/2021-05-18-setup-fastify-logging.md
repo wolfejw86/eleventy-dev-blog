@@ -12,7 +12,7 @@ published: true
 
 ### A New Fastify Server in a Single .js File
 
-First things first, you need a way to experiment! Learning new things can be challenging so setting yourself up for success is really important. For the duration of this article I'd recommend using the below single file fastify server
+First things first, you need a way to experiment! Learning new things can be challenging so setting yourself up for success is really important. For the duration of this article I'd recommend using the below single file fastify server:
 
 ```js
 const Fastify = require("fastify");
