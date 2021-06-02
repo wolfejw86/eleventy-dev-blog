@@ -10,8 +10,6 @@ published: true
 
 {{ description }}
 
-P.S. If you want to jump straight to the GitHub code example, scroll no further and head right over here: [PlaceHolder](#github)
-
 ### A New Fastify Server in a Single .js File
 
 First things first, you need a way to experiment! Learning new things can be challenging so setting yourself up for success is really important. For the duration of this article I'd recommend using the below single file fastify server
