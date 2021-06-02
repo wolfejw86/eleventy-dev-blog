@@ -25,6 +25,9 @@ code {
     }
 
     article {
+        h3 {
+            display: flex;
+        }
         h2 {
             display: flex;
             align-items: center;
