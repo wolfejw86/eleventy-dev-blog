@@ -1,7 +1,7 @@
 ---
 title: Setup Your Fastify Server With Logging The Right Way - No More Express
 description: Learning a new Node.js framework can be daunting given the speed at which the ecosystem moves these days. Also some of the information on learning new techniques with Node.js is outdated - for example the sheer number of Express tutorials you still find out there! Express is long overdue for a replacement, and Fastify fits right in!  One of the first things to consider when running a Node.js server is how to handle logging the right way. ExpressJS did not offer anything out of the box, forcing another bike shed to paint amongst your team.  Fastify on the other hand recognizes that this is a critical piece of running a server and provides sensible defaults - in the case of logging - the pino logger. Join me in this article where I walk through how to setup a Fastify Node.js logger the right way, the first time.
-date: "2021-05-31"
+date: "2021-06-01"
 tags: [Fastify, Node.js]
 published: true
 ---
