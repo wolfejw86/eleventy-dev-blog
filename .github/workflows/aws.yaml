@@ -40,4 +40,4 @@ jobs:
 
       - name: Create CloudFront invalidations on mandatory sections of site
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/index.html" "/feed.xml" "/sitemap.xml" "/tags/*"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
